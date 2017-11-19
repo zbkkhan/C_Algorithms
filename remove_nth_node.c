@@ -7,13 +7,18 @@
  */
 
 struct ListNode* removeNthFromEnd(struct ListNode* head, int n) {
-    
+    int i;
     if(head->next == NULL && n == 1){
         return NULL;
     }
     
     //call traverseList on head
-    traverseList(head, n);
+    i = traverseList(head, n);
+    
+    //If first element had to be removed
+    if(i == n + 1){
+        head = head->next;
+    }
     //return head
     return head;
 }
